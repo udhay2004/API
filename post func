@@ -1,0 +1,20 @@
+import requests
+import json
+
+def add_product(data):
+    headers = {
+        'Content-Type': 'application/json'
+    }
+    post_responses=requests.post("https://dummyjson.com/products/add",json=data,headers=headers)
+    return post_responses.json()
+
+
+data = {
+        'title': 'BMW Pencil',
+        'price': 50.0,
+        'brand': 'BMW',
+        'category': 'Stationery'    
+}
+
+product = add_product(data)
+print(product)
