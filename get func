@@ -1,0 +1,12 @@
+import requests
+import json
+def get_guest_details(start_booking_id, end_booking_id):
+    guest=[]
+    for i in range(start_booking_id, end_booking_id):
+        url = f"https://restful-booker.herokuapp.com/booking/{str(i)}"
+        res = requests.get(url)
+        guest.append(res.json())
+    return guest
+
+details = get_guest_details(1,10)
+print(details)
